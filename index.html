@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trạm Chỉ Huy - Đép Trưởng</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <!-- Thanh Điều Hướng (Navbar) phong cách Portfolio -->
+    <nav class="top-navbar">
+        <div class="logo"><span>D</span> DAT NGUYEN</div>
+        <div class="nav-links">
+            <button class="nav-btn active" onclick="openTab(event, 'tab-home')">HOME</button>
+            <button class="nav-btn" onclick="openTab(event, 'tab-about')">ABOUT</button>
+            <button class="nav-btn" onclick="openTab(event, 'tab-codeforces')">CODEFORCES</button>
+            <button class="nav-btn" onclick="openTab(event, 'tab-jobs')">VIỆC LÀM</button>
+            <button class="nav-btn" onclick="openTab(event, 'tab-gaming')">GIẢI TRÍ</button>
+            <button class="nav-btn" onclick="openTab(event, 'tab-gear')">CÔNG NGHỆ</button>
+            <button class="nav-btn" onclick="openTab(event, 'tab-japan')">NHẬT BẢN</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- TAB 1: HOME (Tin tức IT & Thời tiết) -->
+        <main id="tab-home" class="tab-content" style="display: block;">
+            <div class="bento-grid">
+                <section class="card" id="vnexpress-box">
+                    <h2>📰 Radar Công Nghệ</h2>
+                    <ul id="news-list">
+                        <li class="loading">Đang nạp dữ liệu...</li>
+                    </ul>
+                </section>
+                <section class="card empty-box">
+                    <h2>🌦️ Trạm Khí Tượng Đà Nẵng</h2>
+                    <p>Đang quét radar thời tiết...</p>
+                </section>
+            </div>
+        </main>
+
+        <!-- TAB 2: ABOUT (Profile cá nhân chuẩn ảnh thiết kế) -->
+        <main id="tab-about" class="tab-content" style="display: none;">
+            <div class="about-card">
+                <div class="about-info">
+                    <div class="hi-badge">Hi !</div>
+                    <h3 class="role-title">SOFTWARE ENGINEER Student</h3>
+                    <hr class="divider">
+                    
+                    <table class="info-table">
+                        <tr>
+                            <td class="label">NAME</td>
+                            <td class="value">Dat Nguyen</td>
+                        </tr>
+                        <tr>
+                            <td class="label">UNIVERSITY</td>
+                            <td class="value">Da Nang University of Science and Technology</td>
+                        </tr>
+                        <tr>
+                            <td class="label">MAJOR</td>
+                            <td class="value">Software Engineering</td>
+                        </tr>
+                        <tr>
+                            <td class="label">AGE</td>
+                            <td class="value">20</td>
+                        </tr>
+                        <tr>
+                            <td class="label">ADDRESS</td>
+                            <td class="value">Da Nang, Viet Nam</td>
+                        </tr>
+                        <tr>
+                            <td class="label">SKILLS</td>
+                            <td class="value">C++, C#/.NET, Java, HTML/CSS/JS, SQL Server</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534308143481-c55f00be8bd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Profile Picture">
+                </div>
+            </div>
+        </main>
+
+        <!-- TAB 3: CODEFORCES (API đấu trường thật) -->
+        <main id="tab-codeforces" class="tab-content" style="display: none;">
+            <div class="bento-grid-single">
+                <section class="card">
+                    <h2>🏆 Đấu Trường Codeforces - Các Kỳ Thi Sắp Diễn Ra</h2>
+                    <ul id="codeforces-list" class="grid-list">
+                        <li class="loading">Đang kết nối API Codeforces...</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- TAB 4: VIỆC LÀM (Săn Job Đà Nẵng) -->
+        <main id="tab-jobs" class="tab-content" style="display: none;">
+            <div class="bento-grid-single">
+                <section class="card">
+                    <h2>💼 Thị Trường Việc Làm IT Đà Nẵng (Intern & Fresher)</h2>
+                    <ul id="jobs-list" class="grid-list">
+                        <li class="loading">Đang cào tin tuyển dụng...</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <!-- TAB 5: GIẢI TRÍ (TFT / Valorant) -->
+        <main id="tab-gaming" class="tab-content" style="display: none;">
+            <div class="bento-grid">
+                <section class="card">
+                    <h2>🎯 Đấu Trường Chân Lý - S-Tier Meta Comps</h2>
+                    <ul id="tft-list">
+                        <li class="loading">Đang cập nhật đội hình hot...</li>
+                    </ul>
+                </section>
+                <section class="card">
+                    <h2>🎮 Trạm Valorant Việt Nam</h2>
+                    <div id="val-status">
+                        <li class="loading">Đang kết nối Server...</li>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- TAB 6: CÔNG NGHỆ (Gear & Setup Price Tracker) -->
+        <main id="tab-gear" class="tab-content" style="display: none;">
+            <div class="bento-grid-single">
+                <section class="card">
+                    <h2>💻 Radar Đồ Công Nghệ & Săn Sale (Aula Keyboards, LG/Lenovo Monitors)</h2>
+                    <div class="gear-grid" id="gear-list">
+                        <div class="loading">Đang đồng bộ bảng giá...</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- TAB 7: NHẬT BẢN (Exchange & JP News) -->
+        <main id="tab-japan" class="tab-content" style="display: none;">
+            <div class="bento-grid">
+                <section class="card">
+                    <h2>💴 Tỷ giá JPY / VND (Mới nhất)</h2>
+                    <div id="yen-rate-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 70%;">
+                        <div class="loading">Đang tải tỷ giá...</div>
+                    </div>
+                </section>
+
+                <section class="card">
+                    <h2>🗼 Radar Tin Tức Nhật Bản</h2>
+                    <ul id="japan-news-list">
+                        <li class="loading">Đang tải tin tức...</li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+    </div>
+    
+    <footer style="text-align: center; padding: 30px; color: var(--text-muted); font-size: 0.9rem;">
+          <span id="last-updated-text">...</span>
+    </footer>
+
+    <script src="./assets/script.js"></script>
+</body>
+</html>
